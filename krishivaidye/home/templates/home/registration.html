@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/design.css' %}">
+</head>
+<body>
+    <div class="container">
+    <div class="card">
+        <div class="inner-box">
+            <div class="card-font">
+            <h2>Register</h2>
+            <form action={% url 'sign' %} method="POST">
+            {% csrf_token %}
+            <input type="name" class="input-box" placeholder="Enter Your UserName" name="name" required>
+            <input type="email" class="input-box" placeholder="Enter Your Email" name="email" required>
+            <input type="password" class="input-box" placeholder="Enter Your PassWord" name="password" required>
+            <input type="password" class="input-box" placeholder="Enter Your PassWord" name="confirmPassword" required>
+            <button type="submit" class="submit-btn">Submit</button>
+            </form>
+            <a href="{% url 'login_up' %}" class="btn">Already H've Account</a>
+            <a href="{% url 'reset_password' %}" class="btn" id="fgt">Reset PassWord</a>
+            {% comment %} forgotPassword {% endcomment %}
+                    
+                    <div class="card-back"></div>
+            </div>
+        </div>
+    </div>
+ </div>
+</body>
+</html>

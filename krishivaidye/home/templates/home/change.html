@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassWord Reset</title>
+    <link rel="stylesheet" href="{% static 'assets/css/design.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="inner-box">
+                <div class="card-font">
+                <h2>Change Password</h2>
+                <form action={% url 'passChange' %} method="POST">
+                {% csrf_token %}
+                
+                {{form.as_p}}
+                <button type="submit" class="submit-btn">Submit</button>
+                </form>
+                </div>
+            </div>
+        </div>
+     </div>
+</body>
+</html>

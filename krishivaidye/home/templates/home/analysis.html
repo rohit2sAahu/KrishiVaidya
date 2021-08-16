@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+    <noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="{% url 'home' %}">Krishi-Vaidye</a></h1>
+            <h1 style="padding-left: 1000px;border-radius: 200px;"><a href="{% url 'logout_up' %}" class="button fit">Logout</a></h1>
+
+        </header>
+
+        <!-- Main -->
+        <article id="main">
+            <header>
+                <h3>Plant Doc</h3>
+                <h1>follow the instructions carefully</h1>
+            </header>
+            <section class="wrapper style5">
+                <div class="inner">
+
+                    <p>Take few photographs of the disease-affected leaves to know the disease and the solution for it.
+                        <br><br>
+                        <h2>Instructions to followed:</h2>
+                        <ul>
+                            <li>Capture a clear image, which is not blurr</li>
+                            <li>Make sure that the disease if visible in the photo clearly</li>
+                            <li>Do not take photographs from very near or far from the plant</li>
+                            <li>Upload the captured Image below to Run Diagnosis</li>
+                        </ul>
+
+                    </p>
+
+
+
+                    <!-- <section class="spotlight">
+									<div class="content">
+									<div>
+										<form method="post" enctype="multipart/form-data">
+											{% csrf_token %}
+											<ul class="actions stacked">
+												<li><input type="file" name="imageFile"></li>
+												<li><input type="submit" name="submit" value="Upload"></li>
+											</ul>
+										</form>
+									</div>
+
+							</div>
+						</section> -->
+                    <section class="spotlight">
+                        <div class="content">
+                            <header>
+                                <h1>Upload your file below jpg format</h1>
+
+                            </header>
+                            <div>
+                                <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <ul class="actions stacked">
+                                        <li><input type="file" name="imageFile"></li>
+                                        <li><input type="submit" name="submit" value="Upload"></li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- <a href="#" class="button fit"><h2>{{predictions}}</h2></a> -->
+                    <!--prediction display -->
+                    <section class="spotlight">
+                        <div class="content">
+                            <div>
+
+                                <ul class="actions stacked">
+                                    <br>
+                                    <li>
+                                        {% if predictions == "Early Blight Disease" %}
+                                        <h1><br>Your crop is affected by: <br><br>
+                                            <a href="{% url 'early_blight' %}" class="button fit">
+                                                <h2>{{predictions}}</h2>
+                                            </a>
+                                            {% elif predictions == "Late Blight Disease" %}
+                                            <h1><br>Your crop is affected by: <br><br>
+                                                <a href="{% url 'late_bligth' %}" class="button fit">
+                                                    <h2>{{predictions}}</h2>
+                                                </a>
+                                                {% elif predictions == "Septorial Diseased Plant" %}
+                                                <h1><br>Your crop is affected by: <br><br>
+                                                    <a href="{% url 'Septorial_Disease' %}" class="button fit">
+                                                        <h2>{{predictions}}</h2>
+                                                    </a>
+                                                    {% elif predictions == "Yellow Leaf Curl Virus" %}
+                                                    <h1><br>Your crop is affected by: <br><br>
+                                                        <a href="{% url 'yellow_curl' %}" class="button fit">
+                                                            <h2>{{predictions}}</h2>
+                                                        </a>
+                                                        {% elif predictions == "Healthy Plant" %}
+                                                        <h1><br>Your crop is: <br><br>
+                                                            <a href="{% url 'home' %}" class="button fit">
+                                                                <h2>Healthy</h2>
+                                                            </a>
+                                                            {% else %}
+                                                            <!-- <h2>Result Window</h2> -->
+                                                            {% endif %}
+                                    </li><br>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <!--prediction end -->
+
+                    <!-- prediction display -->
+                    <!-- <section class="spotlight">
+									<div class="content">
+										
+									<div>
+										<h1><br>Your crop is affected by <h2> {{predictions}} </h2><br><a href="#" class="button fit">Know more</a></h1>
+									</div>
+
+									</div>
+								</section> -->
+                    <!--prediction end -->
+
+                </div>
+            </section>
+        </article>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Krishi-Vaidye</li><br>
+                <li>Built by: ROHIT VIJAPUR | Shridhar A H | Sachin R Shettigar | Rohit Sahu |</li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+    <script src="{% static 'assets/js/browser.min.js' %}"></script>
+    <script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
